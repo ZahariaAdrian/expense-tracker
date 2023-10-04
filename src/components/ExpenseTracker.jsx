@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Expense } from "./Expense";
 import { TransactionHistory } from "./TransactionHistory";
 import { TransactionForm } from "./TransactionForm";
@@ -8,11 +8,11 @@ function ExpenseTracker() {
   const [expense, setExpense] = useState(0);
   const [transactions, setTransactions] = useState([]);
 
-  const saveState = () => {
+  const saveState = useCallback(() => {
     localStorage.setItem("expenseTrackerState", JSON.stringify(transactions));
-  };
+  }, [transactions]);
 
-  const calculateExpenses = () => {
+  const calculateExpenses = useCallback(() => {
     let income = 0,
       expense = 0;
     transactions.forEach((data) => {
@@ -23,10 +23,9 @@ function ExpenseTracker() {
       }
     });
 
-    saveState();
     setIncome(income);
     setExpense(expense);
-  };
+  }, [transactions]);
 
   const handleAddNewTransaction = (item) => {
     let newTransactions = [...transactions, item];
@@ -42,14 +41,13 @@ function ExpenseTracker() {
     let localState = JSON.parse(localStorage.getItem("expenseTrackerState"));
     if (localState) {
       setTransactions(localState);
-    } else {
-      calculateExpenses();
     }
   }, []);
 
   useEffect(() => {
     calculateExpenses();
-  }, [transactions]);
+    saveState();
+  }, [transactions, calculateExpenses, saveState]);
 
   return (
     <div>
