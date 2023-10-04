@@ -3,8 +3,6 @@ import { Expense } from "./Expense";
 import { TransactionHistory } from "./TransactionHistory";
 import { TransactionForm } from "./TransactionForm";
 
-import { uniqueId } from "../utils";
-
 function ExpenseTracker() {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
