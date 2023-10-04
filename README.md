@@ -1,6 +1,6 @@
 # MERN Stack Blog App
 
-## Expense tracker made using React JS, deployed with Netlify!
+## Expense Tracker made using React JS, deployed with Netlify!
 
 This project represents an expense tracker, one of the most important tools in one's life taking into consideration the actual economic environment!
 
