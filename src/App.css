@@ -1,38 +1,129 @@
-.App {
+:root {
+  --box-shadow: 0px 1px 4px 1px rgba(199, 199, 199, 1);
+  --income: green;
+  --expense: red;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: -1px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.your-balance {
+  display: flex;
+  justify-content: center;
+}
+
+.balance-val {
+  font-size: 30px;
+  color: orange;
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.col h3 {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.row-expense {
+  box-shadow: var(--box-shadow);
+  margin-top: 20px;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.col-income,
+.col-expense {
+  padding: 20px;
+}
+
+.col-expense {
+  padding-left: 10px;
+}
+
+.col-income span {
+  display: inline-block;
+  border-right: 1px solid #ccc;
+  padding-right: 30px;
+}
+
+.income-text {
+  color: var(--income);
+}
+
+.expense-text {
+  color: var(--expense);
+}
+
+.transactions,
+.transactions li {
+  padding: 0;
+  margin: 0;
+}
+
+.transactions li {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.transactions li div {
+  margin-right: 10px;
+}
+
+.transactions li span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.transaction-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.transaction-form input {
+  width: 97%;
+  height: 1.6rem;
+}
+
+.transaction-form label {
+  margin-bottom: 10px;
+}
+
+.transaction-form button {
+  height: 30px;
+  margin-bottom: 5px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 15px;
   color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.income-btn {
+  background-color: var(--income);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.expense-btn {
+  background-color: var(--expense);
 }
