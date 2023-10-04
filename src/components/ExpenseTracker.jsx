@@ -50,7 +50,7 @@ function ExpenseTracker() {
   }, [transactions, calculateExpenses, saveState]);
 
   return (
-    <div>
+    <div className="container">
       <h1>Expense Tracker</h1>
       <Expense income={income} expense={expense} />
       <TransactionHistory transactions={transactions} onDelete={handleDelete} />
